@@ -22,7 +22,7 @@ const Landing = () => (
     </a>
 
     <footer className="navbar-fixed-bottom landing">
-      <p className="author-credit">Created with love by Christian Arredondo, Tyler Holzer, Megan Rabuse, and Daniel Ricaud for HRATX25</p>
+      <p className="author-credit">Created with love by Jin Chung, Jerry Krusinski, and David Pollan for HRATX25</p>
     </footer>
   </div>
 );

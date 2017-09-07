@@ -1,11 +1,10 @@
 class UserProfile extends React.Component {
   constructor (props) {
-    super (props)
-    }
+    super (props);
+  }
 
   render () {
     return (
-
       <tr className="entry">
         <td className="col-xs-2">
           <img src={this.props.art_url60}></img>
@@ -17,7 +16,7 @@ class UserProfile extends React.Component {
           <div>{this.props.impression}</div>
         </td>
       </tr>
-    )
+    );
   }
 }
 

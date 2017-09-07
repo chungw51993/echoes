@@ -1,14 +1,12 @@
 class Result extends React.Component {
-	constructor(props){
-		super(props);
-	}
+  constructor(props) {
+    super(props);
+  }
 
+  render () {
+    return (
 
-	render () {
-		return (
-
-
-		<div onClick={() => { this.props.setSelected(this.props.album)} } className="search-result thumbnail">
+		<div onClick={() => { this.props.setSelected(this.props.album); } } className="search-result thumbnail">
 			<img src={this.props.album.artworkUrl100} className="img-rounded"/>
 			<div className="caption">
 					<span className="artist">{this.props.album.artistName}</span>&nbsp;-&nbsp;
@@ -17,10 +15,8 @@ class Result extends React.Component {
 			</div>
 		</div>
 
-
-
-		)
-	}
+    );
+  }
 }
 
 window.Result = Result;

@@ -15,6 +15,6 @@ class Watcher extends React.Component {
           </Link>
         </td>
       </tr>
-    )
+    );
   }
 }

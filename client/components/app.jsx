@@ -7,7 +7,7 @@ class App extends React.Component {
       allEntries: [],
       searchResults: [],
       currentUser: ''
-    }
+    };
   }
   // when the component loads successfully
   componentWillMount () {
@@ -24,35 +24,35 @@ class App extends React.Component {
           this.setState({
             allEntries: response,
             currentUser: response[0].user
-          })
+          });
         } else {
           this.setState({
             allEntries: []
-          })
+          });
         }
       },
       error: function (error) {
         console.log(error);
         throw error;
       }
-    })
-  };
+    });
+  }
   // generates greeting in banner
   greetUser () {
     // if current user is identified
     if (this.state.currentUser) {
       // greet them by name
-      return `Hello, ${this.state.currentUser}!`
+      return `Hello, ${this.state.currentUser}!`;
     } else {
       // new users are greetedwith Hello
-      return `Hello!`
+      return 'Hello!';
     }
   }
   // deletes a listening instance from the db
   deleteUserEntries (id, date, callback) {
     $.ajax({
-      url:'/querydb/delete',
-      type:'POST',
+      url: '/querydb/delete',
+      type: 'POST',
       data: {
         impressionId: id,
         date: date
@@ -65,26 +65,26 @@ class App extends React.Component {
         console.log(error);
         throw error;
       }
-    })
+    });
   }
   // updates a user entry
   updateUserEntries (id, rating, impression, callback) {
     $.ajax({
-      url:'/querydb/update',
-      type:'POST',
-      data:{
+      url: '/querydb/update',
+      type: 'POST',
+      data: {
         id: id,
         rating: rating,
         impression: impression
       },
       success: function (response) {
-         callback();
+        callback();
       },
       error: function (error) {
         console.log(error);
         throw error;
       }
-    })
+    });
   }
 
 
@@ -98,7 +98,7 @@ class App extends React.Component {
             <div><h2 className="greeting">{this.greetUser()}</h2></div>
             <img className='navbar-center header logo' src="/styles/logo.svg"></img>
           </header>
-          <div  className="col-md-2 search">
+          <div className="col-md-2 search">
             <Search allEntries={this.state.allEntries}
                     getUserEntries={this.getUserEntries.bind(this)}
                     updateUserEntries={this.updateUserEntries.bind(this)}
@@ -116,7 +116,7 @@ class App extends React.Component {
           </div>
 
       </div>
-    )
+    );
   }
 }
 

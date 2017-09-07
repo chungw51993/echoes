@@ -1,6 +1,6 @@
 class EntryList extends React.Component {
   constructor (props) {
-    super (props)
+    super (props);
   }
 
   render () {
@@ -18,7 +18,7 @@ class EntryList extends React.Component {
       </tr>
       {this.props.allEntries.map((entry) => {
         return (
-          <Entry date={entry.date.slice(0,10)}
+          <Entry date={entry.date.slice(0, 10)}
                  title={entry.title}
                  artist={entry.name}
                  genre={entry.genre}
@@ -33,11 +33,12 @@ class EntryList extends React.Component {
                  deleteUserEntries={this.props.deleteUserEntries}
                  key={entry.date + entry.id}
             />
-        )})
+        );
+      })
       }
     </tbody>
     );
   }
-};
+}
 
 window.EntryList = EntryList;

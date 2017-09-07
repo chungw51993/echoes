@@ -1,6 +1,6 @@
 class Search extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -15,7 +15,7 @@ class Search extends React.Component {
   componentWillMount () {
     this.setState({
       selectedListenDate: this.setDate()
-    })
+    });
   }
   // gets and formats the current date
   setDate () {
@@ -47,7 +47,7 @@ class Search extends React.Component {
 
     $.ajax({
       url: searchUrl,
-      data : {
+      data: {
         format: 'json'
       },
       type: 'GET',
@@ -60,7 +60,7 @@ class Search extends React.Component {
         console.log(error);
         return;
       }
-    })
+    });
   }
 
   // send selected album and listen date to db via post request
@@ -68,7 +68,7 @@ class Search extends React.Component {
     // send object with keys album and date
     var newEntry = {
       album: album,
-      date: date.slice(0,10),
+      date: date.slice(0, 10),
       impression: this.state.impression,
       rating: this.state.rating
     };
@@ -83,7 +83,6 @@ class Search extends React.Component {
         contentType: 'application/json',
         data: JSON.stringify(newEntry),
         success: (results) => {
-          console.log('SUCCESS!')
           // assigns current date to state
           // clears previously set state
           var date = this.setDate();
@@ -133,15 +132,12 @@ class Search extends React.Component {
           <div className="results">
           <SearchBar search={_.debounce(this.iTunesSearch.bind(this), 300)}
                      className="search-bar" />
-
-
-                    <div id='add-impression'>
-                      <ImpressBox change={this.change.bind(this)}/>
-                    </div>
-
-										<div id='add-album-btn' onClick={() => {this.addNewEntry(this.state.results[0], this.state.selectedListenDate)}}>
-                      <button type="button" className="btn btn-default">Add this album</button>
-                    </div>
+            <div id='add-impression'>
+              <ImpressBox change={this.change.bind(this)}/>
+            </div>
+						<div id='add-album-btn' onClick={() => { this.addNewEntry(this.state.results[0], this.state.selectedListenDate); }}>
+              <button type="button" className="btn btn-default">Add this album</button>
+            </div>
             <div className="results-container">
               <ResultsList albums={this.state.results}
                 addNewEntry={this.props.addNewEntry}
@@ -150,12 +146,9 @@ class Search extends React.Component {
             </div>
           </div>
         </div>
-
       </div>
-
-
     );
-  };
-};
+  }
+}
 
 window.Search = Search;

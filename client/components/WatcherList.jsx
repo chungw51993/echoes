@@ -13,13 +13,13 @@ class WatcherList extends React.Component {
           </tr>
         </thead>
         <tbody className=''>
-          {this.props.allWatcher.map((watcher) => {
-            return <Watcher WatcherName={watcher.username}
-                            key={watcher.id} />
-          })}
+          {this.props.allWatcher.map(watcher =>
+            <Watcher WatcherName={watcher.username}
+              key={watcher.id} />
+          )}
         </tbody>
       </table>
-    )
+    );
   }
 }
 

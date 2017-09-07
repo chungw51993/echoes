@@ -1,17 +1,16 @@
 // Searches iTunes
 class SearchBar extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
-
   }
 
-  render(){
+  render() {
     return (
       <input type='text' className="search-bar form-control" placeholder="Search for an album..."
              onKeyUp={event => this.props.search(event.target.value)}
           />
-    )
+    );
   }
 }
 

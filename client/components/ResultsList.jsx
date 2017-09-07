@@ -1,9 +1,8 @@
 // Component generatees each search result entry
 class ResultsList extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
   }
-
 
   render () {
 
@@ -21,8 +20,8 @@ class ResultsList extends React.Component {
                     setSelected={this.props.setSelected}
                     key={album.collectionId}
                     album={album}/>
-            )}
-          )
+          );
+        })
         }
       </div>
 

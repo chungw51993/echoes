@@ -1,7 +1,7 @@
 class UserProfileList extends React.Component {
   constructor (props) {
-    super (props)
-    }
+    super (props);
+  }
 
   render () {
     return (
@@ -20,11 +20,11 @@ class UserProfileList extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {this.props.allEntries.map( (entry) => {
-            return <UserProfile art_url60={entry.art_url60}
-                    name={entry.name}
-                    impression={entry.impression} />
-          })}
+          {this.props.allEntries.map(entry =>
+            <UserProfile art_url60={entry.art_url60}
+              name={entry.name}
+              impression={entry.impression} />
+          )}
         </tbody>
       </table>
     );

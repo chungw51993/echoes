@@ -1,16 +1,17 @@
 class Entry extends React.Component {
   constructor (props) {
-    super (props)
+    super(props);
+
     this.state = {
-      months:["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-      month:''
-    }
+      months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      month: ''
+    };
   }
 
   componentWillMount () {
     this.setState ({
-      month:this.props.date.slice(5,7)
-    })
+      month: this.props.date.slice(5, 7)
+    });
   }
 
 
@@ -20,7 +21,7 @@ class Entry extends React.Component {
         <td className='listenDate col-md-1'>
           <span className='month'><h4>{moment.months(this.state.month - 1)}</h4> </span>
           <span className='day'><h4>{this.props.date.slice(8, 10)}</h4></span>
-          <span className='year'>{this.props.date.slice(0,4)}</span>
+          <span className='year'>{this.props.date.slice(0, 4)}</span>
         </td>
         <td className='col-md-1'>
           <div>
@@ -47,7 +48,7 @@ class Entry extends React.Component {
                    getUserEntries={this.props.getUserEntries}
                    deleteUserEntries={this.props.deleteUserEntries}/>
       </tr>
-    )
+    );
   }
 }
 

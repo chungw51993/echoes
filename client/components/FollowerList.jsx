@@ -12,20 +12,20 @@ class FollowerList extends React.Component {
     this.getAllImpression();
   }
 
-   getAllImpression() {
-    var getFollowerImpression = function(){
+  getAllImpression() {
+    var getFollowerImpression = function() {
       return $.ajax({
-                url: '/api/follower/',
-                type: 'GET'
-              })
-    }
+        url: '/api/follower/',
+        type: 'GET'
+      });
+    };
 
     var getUserImpression = function() {
       return $.ajax({
-                url: '/querydb',
-                type: 'GET',
-              })
-    }
+        url: '/querydb',
+        type: 'GET',
+      });
+    };
 
     $.when(getFollowerImpression(), getUserImpression()).done((follower, user) => {
       var merged = [].concat.apply([], follower[0]);
@@ -39,8 +39,8 @@ class FollowerList extends React.Component {
       this.setState({
         allImpression: sorted,
         currentUser: user[0].username
-      })
-    })
+      });
+    });
   }
 
   render() {
@@ -82,8 +82,8 @@ class FollowerList extends React.Component {
                       rating={impression.rating}
                       key={impression.id}
                       currentUser={this.state.currentUser}/>
-                    );
-                  })}
+                  );
+                })}
                 </tbody>
               </table>
           </div>
